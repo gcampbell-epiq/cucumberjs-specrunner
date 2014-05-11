@@ -1,0 +1,111 @@
+﻿body {
+    text-align: center;
+    font-family: 'Courier New';
+    font-size: 10pt;
+    line-height: 1.5em;
+}
+
+ol, ul, li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#body {
+    margin: 0px auto;
+    text-align: left;
+    width: 1000px;
+}
+
+#testStatus {
+    border-bottom: solid 5px gray;
+    padding: .1in 0 .25in 0;
+    margin-bottom: .25in;
+}
+
+.keyword {
+    font-weight: bold;
+}
+
+.description {
+    font-style: italic;
+}
+
+.feature {
+    margin-bottom: 1.5em;
+}
+
+.scenario {
+    margin: 1em 0 0 2em;
+}
+
+.steps {
+    margin-left: 2em;
+}
+
+.skipped {
+    background-color: #2DEAEC;
+}
+
+.pending {
+    background-color: #EAEC2D;
+}
+
+.passed {
+    background-color: #C5D88A;
+}
+
+.failed {
+    background-color: #D88A8A;
+}
+
+.scenario .icon {
+    margin: 3px 0 0 4px;
+    display: inline-block;
+    width: 16px;
+    height: 13px;
+}
+.scenario .icon span:before {
+    content: "\25BA";
+}
+
+.scenario .icon.expanded {
+    background-position: -64px -16px;
+}
+.scenario .icon.expanded span:before {
+    content: "\25BC";
+}
+
+.step {
+    padding: 2px 5px;
+}
+
+.scenario-name {
+    cursor: pointer;
+}
+
+#errors {
+    background-color: darkred;
+    padding: 3px;
+    border: solid 3px darkred;
+}
+
+#errors ul {
+    background-color: #fff;
+}
+
+#errors li {
+    margin: 5px 0;
+    padding: 0 5px;
+    white-space: pre;
+    border-bottom: solid 1px red;
+}
+
+#errors h4 {
+    color: #fff;
+    margin: 0;
+}
+
+iframe {
+    visibility: hidden;
+}

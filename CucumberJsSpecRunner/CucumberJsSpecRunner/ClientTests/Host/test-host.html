@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>        
+    <link media="screen" rel="stylesheet" type="text/css" href="Resources/Styles/test-host.css" />
+    <script type="text/javascript" src="Resources/Scripts/jquery/jquery-1.6.4.js"></script>
+    <script type="text/javascript" src="Resources/Scripts/knockout/knockout-2.2.1.js"></script>
+    <script type="text/javascript" src="Resources/Scripts/test-host.js"></script>
+    <script type="text/javascript" src="test-host.config.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var testsVm = {
+                Tests: ko.observableArray([]),
+                Errors: ko.observableArray([]),
+                Running: ko.observable(true),
+                getState: function () {
+                    var tests = testsVm.Tests(),
+                        state = {
+                            passed: 0,
+                            failed: 0,
+                            tested: tests.length,
+                            running: testsVm.Running()
+                        };
+
+                    for (var i = 0; i < tests.length; i++) {
+                        state.passed += tests[i].Stats.ScenariosPassed;
+                        state.failed += tests[i].Stats.ScenariosFailed;
+                    }
+
+                    return state;
+                }
+            }
+            ko.applyBindings(testsVm, $('#test-results')[0]);
+
+            TestHost.TestDoneHandler = function (test) {
+                testsVm.Tests.push(test);
+            };
+            TestHost.ErrorMessageReceivedHandler = function (message) {
+                testsVm.Errors.push(message);
+            };
+            TestHost.TestingCompletedHandler = function () {
+                testsVm.Running(false);
+            };
+
+            var singleTestParam = location.search.match('testNumber=([^&]*)');
+            if (singleTestParam) {
+                TestHost.run(singleTestParam[1], true);
+            } else {
+                TestHost.run();
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="body">
+        <div id="test-results">
+            <div id="testHeader">
+                <h3><a href="test-host.html">Spec Runner</a></h3>
+                <div id="testStatus" data-bind="with: getState()">
+                    <div data-bind="text: 'State: ' + (running ? 'Running...' : 'Finished')"></div>
+                    <div>
+                        <span data-bind="text: 'Features Tested: ' + tested"></span> | 
+                        <span data-bind="text: 'Scenarios Passed: ' + passed"></span> | 
+                        <span data-bind="text: 'Scenarios Failed: ' + failed"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- ko foreach: Tests -->
+                <div class="feature" data-bind="with: Stats">
+                    <div class="feature-name">
+                        <div>Feature: <a data-bind="    attr: { href: 'test-host.html?testNumber=' + $index() }, text: Feature"></a></div>
+                        <span data-bind="text: 'Scenarios Passed: ' + ScenariosPassed"></span> | 
+                        <span data-bind="text: 'Scenarios Failed: ' + ScenariosFailed"></span>
+                    </div>
+                    <ul class="scenarios" data-bind="foreach: Scenarios">
+                        <!-- ko with: $.extend($data, { expanded: ko.observable(failed) }) -->
+                            <li class="scenario" data-bind="css: { 'failed': failed, 'passed': !failed }">
+                                <div class="scenario-name" data-bind="click: function () { expanded(!expanded()); }">
+                                    <span class="icon" data-bind="css: { 'expanded': expanded }"><span></span></span><span data-bind="text: 'Scenario: ' + name"></span>
+                                </div>
+                                <ol class="steps" data-bind="visible: expanded, foreach: steps">
+                                    <li data-bind="attr: { 'class': 'step ' + status }, text: name">
+                                    </li>
+                                </ol>
+                            </li>
+                        <!-- /ko -->
+                    </ul>
+                </div>
+            <!-- /ko -->
+            <div id="errors" data-bind="visible: Errors().length > 0">
+                <h4>Errors:</h4>
+                <ul data-bind="foreach: Errors">
+                    <li data-bind="text: $data"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
