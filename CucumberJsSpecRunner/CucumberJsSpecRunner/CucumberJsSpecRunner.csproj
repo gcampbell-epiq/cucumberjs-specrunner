@@ -61,6 +61,7 @@
     <Content Include="ClientTests\Host\Resources\Scripts\phantomjs-1.9.2-windows\README.md" />
     <Content Include="ClientTests\Host\Resources\Scripts\phantomjs-1.9.2-windows\LICENSE.BSD" />
     <Content Include="ClientTests\Host\Resources\Scripts\phantomjs-1.9.2-windows\ChangeLog" />
+    <Content Include="cucumberjs-specrunner.nuspec" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

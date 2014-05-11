@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>cucumberjs-specrunner</id>
+    <version>1.0.0</version>
+    <title>CucumberJS Spec Runner</title>
+    <authors>Epiq Systems, Gabriel Campbell</authors>
+    <description>BDD setup for Javascript using CucumberJS. </description>
+    <language>en-US</language>
+  </metadata>
+  <files>
+    <file src="ClientTests\Host\**" target="content\ClientTests\Host\" />
+    <file src="ClientTests\Mocks\**" target="content\ClientTests\Mocks\" />
+    <file src="ClientTests\Specs\**" target="content\ClientTests\Specs\" />
+  </files>
+</package>

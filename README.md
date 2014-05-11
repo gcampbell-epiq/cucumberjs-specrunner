@@ -1,2 +1,2 @@
-cucumberjs-specrunner
+CucumberJS Spec Runner
 =====================

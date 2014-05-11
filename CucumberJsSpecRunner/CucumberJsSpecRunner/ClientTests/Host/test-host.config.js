@@ -5,8 +5,8 @@ TestHost.configure({
     // commonDependencies: paths to js files that are commonly used by code under test
     // full URLs or relative paths (~/ is OK to use) are accepted
     commonDependencies: [
-        'http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.js',
-        'http://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js',
     ],
     // requirePath: relative path to require.js for testing amd modules
     requirePath: '~/App/libraries/requirejs/require.js', 
