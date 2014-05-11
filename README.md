@@ -20,10 +20,10 @@ Features
 Setup
 ---------------------
 1. Pull the [cucumberjs-specrunner](https://www.nuget.org/packages/cucumberjs-specrunner/) package into 
-your web project from nuget.
-`
+your web project from nuget.  
+```
 	PM> Install-Package cucumberjs-specrunner
-`
+```
 2. Under the new ClientTests folder, open Host/test-host.config.js. This is where you will configure your 
 test environment. Configuration involves:
 	* Optionally setting up a few paths (your app root, your require.js file)
@@ -37,8 +37,8 @@ serve test-host.html from the filesystem (e.g. file:///c:/[path to project]/clie
 or over http.
 5. _Optional_ To run tests from the command line, run phantomjs.exe with parameters as 0) path to 
 test-host.phantom.js, and 1) filesystem url to test-host.html. For example,  
-`
+```
 	c:\MyProject\ClientTests\Host\Resources\Scripts\phantomjs-1.9.2-windows\phantomjs.exe 
 		"c:\MyProject\ClientTests\Host\test-host.phantom.js"
 		"file:///c:/MyProject/ClientTests/Host/test-host.html"
-`
+```
