@@ -29,7 +29,7 @@ window.TestContext = (function () {
             for (var i = 0; i < externalDependencies.length; i++) {
                 var dep = externalDependencies[i];
                 if (dep.match(/^~\//)) {
-                    dep = this.RootPath + dep.substring(1);
+                    dep = this.RootPath + dep.substring(2);
                 }
                 document.write('<script src="' + dep + '" type="text/javascript"></script>');
             }
