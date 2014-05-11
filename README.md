@@ -21,9 +21,9 @@ Setup
 ---------------------
 1. Pull the [cucumberjs-specrunner](https://www.nuget.org/packages/cucumberjs-specrunner/) package into 
 your web project from nuget.  
-```
+`
 	PM> Install-Package cucumberjs-specrunner
-```
+`
 2. Under the new ClientTests folder, open Host/test-host.config.js. This is where you will configure your 
 test environment. Configuration involves:
 	* Optionally setting up a few paths (your app root, your require.js file)
