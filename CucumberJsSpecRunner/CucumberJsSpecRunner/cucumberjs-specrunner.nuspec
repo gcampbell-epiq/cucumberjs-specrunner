@@ -4,7 +4,7 @@
     <id>cucumberjs-specrunner</id>
     <version>1.0.0</version>
     <title>CucumberJS Spec Runner</title>
-    <authors>Epiq Systems, Gabriel Campbell</authors>
+    <authors>Gabriel Campbell</authors>
     <description>BDD setup for Javascript using CucumberJS. </description>
     <language>en-US</language>
   </metadata>
